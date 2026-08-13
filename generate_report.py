@@ -26,7 +26,7 @@ CATEGORY_FEEDS = {
         "arXiv - KI Papers": "http://export.arxiv.org/rss/cs.AI",
         "Heise Online": "https://www.heise.de/newsticker/heise.rdf",
     },
-    "Wirtschaft & Finanzen": {
+    "Wirtschaft": {
         "Tagesschau - Wirtschaft": "https://www.tagesschau.de/wirtschaft/index~rss2.xml",
         "Handelsblatt": "https://www.handelsblatt.com/contentexport/feed/schlagzeilen",
     },
@@ -44,12 +44,12 @@ CATEGORIES_AUSFUEHRLICH = {"Kuenstliche Intelligenz", "Politik Deutschland"}
 # Icon + Farbe pro Kategorie, fuer die Kartenoptik
 CATEGORY_META = {
     "Kuenstliche Intelligenz": {"icon": "\U0001F916", "color": "#7c3aed"},
-    "Wirtschaft & Finanzen": {"icon": "\U0001F4B9", "color": "#1e40af"},
+    "Wirtschaft": {"icon": "\U0001F4B9", "color": "#1e40af"},
     "Politik Deutschland": {"icon": "\U0001F3DB\uFE0F", "color": "#b91c1c"},
     "Ausbildung & IT-Arbeitsmarkt": {"icon": "\U0001F393", "color": "#0891b2"},
 }
 
-MAX_ITEMS_PER_FEED = 5
+MAX_ITEMS_PER_FEED = 8
 
 # ---------------------------------------------------------
 # 2. WATCHLIST FUER KURSDATEN (yfinance-Ticker)
@@ -146,16 +146,21 @@ Ueberschriften (### gefolgt vom Kategorienamen, keine Abweichung):
 ### Besonderer Tag heute
 
 REGELN:
+- WICHTIGSTE REGEL: Waehle bewusst nur die WIRKLICH relevanten/wichtigen Meldungen aus den
+  Rohdaten aus - liste NICHT einfach alles auf, was in den Feeds steht. Lieber 2 wirklich
+  informative Punkte als 5 belanglose. Lass Nebensaechliches, Boulevard-Themen oder
+  Meldungen ohne echten Neuigkeitswert komplett weg.
 - Nur STICHPUNKTE, keine langen Saetze (max. ca. 15 Woerter pro Stichpunkt)
 - Jeder Stichpunkt mit Quellenlink im Markdown-Format: - [Kurztitel](URL): Kernaussage
-- Standardmaessig 3-4 Stichpunkte pro Kategorie
+- Standardmaessig 2-4 Stichpunkte pro Kategorie (nur so viele, wie wirklich relevant sind)
 - Bei "Kuenstliche Intelligenz" und "Politik Deutschland": AUSFUEHRLICHER schreiben,
-  5-8 Stichpunkte statt 3-4, aber weiterhin kompakt (Stichpunkte, keine Fliesstexte)
+  bis zu 5-8 Stichpunkte, aber NUR falls tatsaechlich so viele relevante Meldungen da sind
 - Bei "Kuenstliche Intelligenz": explizit erwaehnen, was neue Modelle/Tools koennen UND
   moegliche Risiken/Gefahren, wenn relevant
 - Wenn eine Kategorie keine Meldungen hat, schreibe einen einzelnen Punkt "- Heute keine relevanten Meldungen"
-- Bei "Wirtschaft & Finanzen": nur Marktentwicklungen/Nachrichten einordnen, KEINE Kauf-
-  oder Verkaufsempfehlungen aussprechen, rein informativ bleiben
+- Bei "Wirtschaft": NUR Wirtschaftspolitik, Unternehmensnachrichten, Konjunktur, Zinsen/EZB
+  behandeln - KEINE Kurse/Marktbewegungen nennen (die stehen schon in einer separaten
+  Marktdaten-Tabelle, nicht doppeln). Keine Kauf-/Verkaufsempfehlungen aussprechen.
 - "Wissen des Tages": schreibe 2-3 kompakte Stichpunkte mit einem interessanten Fakt
   zum Thema "{wissen_label}" ({wissen_desc}) - aus eigenem Wissen, unabhaengig von den Feeds
 - "Besonderer Tag heute": {events_block}{holiday_block}
@@ -449,6 +454,9 @@ def write_html(sections, stocks, wissen_thema, archive_dates, holiday_name=None)
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>Morning Report - {today_display}</title>
 <style>
   * {{ box-sizing: border-box; }}
