@@ -9,7 +9,7 @@ import os
 import html
 import datetime
 import feedparser
-import google.generativeai as genai
+from google import genai
 
 # ---------------------------------------------------------
 # 1. HIER DEINE QUELLEN EINTRAGEN (RSS-Feeds)
@@ -66,9 +66,11 @@ Formatiere die Antwort in Markdown (Ueberschriften mit ##, Listen mit -)."""
 def get_summary(prompt):
     """Schickt den Prompt an die Gemini API und gibt den Antworttext zurueck."""
     api_key = os.environ["GEMINI_API_KEY"]
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel("gemini-2.5-flash")
-    response = model.generate_content(prompt)
+    client = genai.Client(api_key=api_key)
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=prompt,
+    )
     return response.text
 
 
