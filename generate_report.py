@@ -17,8 +17,10 @@ from google import genai
 # ---------------------------------------------------------
 FEEDS = {
     "arXiv - KI Papers": "http://export.arxiv.org/rss/cs.AI",
-    "Hacker News": "https://hnrss.org/frontpage",
-    "Tagesschau": "https://www.tagesschau.de/xml/rss2/",
+    "Heise Online - Tech & KI": "https://www.heise.de/newsticker/heise.rdf",
+    "Tagesschau - Wirtschaft": "https://www.tagesschau.de/wirtschaft/index~rss2.xml",
+    "Handelsblatt": "https://www.handelsblatt.com/contentexport/feed/schlagzeilen",
+    "Wissenschaft.de": "https://www.wissenschaft.de/feed/",
 }
 
 MAX_ITEMS_PER_FEED = 5
@@ -115,7 +117,7 @@ def markdown_to_simple_html(markdown_text):
 
 def write_html(summary_text, items):
     """Schreibt den fertigen Report als index.html."""
-    today = datetime.date.today().strftime("%d.%m.%Y")
+    today = datetime.date.today().strftime("%A, %d.%m.%Y")
     html_body = markdown_to_simple_html(summary_text)
 
     sources_html = ""
@@ -123,7 +125,7 @@ def write_html(summary_text, items):
         safe_title = html.escape(item["title"])
         sources_html += (
             f'<li><a href="{item["link"]}" target="_blank">{safe_title}</a> '
-            f'<span class="source">({item["source"]})</span></li>\n'
+            f'<span class="source">{item["source"]}</span></li>\n'
         )
 
     html_content = f"""<!DOCTYPE html>
@@ -133,32 +135,46 @@ def write_html(summary_text, items):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Morning Report - {today}</title>
 <style>
+  * {{ box-sizing: border-box; }}
   body {{
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-    background: #f5f6f8;
-    color: #1a1a1a;
-    line-height: 1.5;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    background: #f4f5f7;
+    color: #1f2430;
+    line-height: 1.6;
   }}
-  h1 {{ color: #1e3a8a; margin-bottom: 4px; }}
-  h2 {{ color: #1e3a8a; margin-top: 28px; font-size: 1.2em; }}
-  .date {{ color: #666; margin-bottom: 30px; font-size: 0.95em; }}
-  .report {{ background: white; padding: 30px; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }}
-  .report ul {{ padding-left: 20px; }}
-  .report li {{ margin-bottom: 6px; }}
-  .sources {{ margin-top: 24px; background: white; padding: 20px 30px; border-radius: 12px; }}
-  .sources ul {{ padding-left: 20px; }}
-  .sources li {{ margin-bottom: 8px; }}
-  .source {{ color: #888; font-size: 0.85em; }}
-  a {{ color: #1e40af; text-decoration: none; }}
+  header {{
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    color: white;
+    margin: 0 -20px 28px;
+    padding: 36px 24px 28px;
+    border-radius: 0 0 20px 20px;
+  }}
+  header h1 {{ margin: 0 0 4px; font-size: 1.5em; letter-spacing: -0.01em; }}
+  header .date {{ opacity: 0.85; font-size: 0.95em; text-transform: capitalize; }}
+  h2 {{ color: #1e293b; margin: 0 0 14px; font-size: 1.05em; border-left: 4px solid #1e40af; padding-left: 10px; }}
+  .report {{ background: white; padding: 26px 28px; border-radius: 14px; box-shadow: 0 1px 3px rgba(15,23,42,0.06); margin-bottom: 20px; }}
+  .report h2:not(:first-child) {{ margin-top: 26px; }}
+  .report ul {{ padding-left: 20px; margin: 0 0 4px; }}
+  .report li {{ margin-bottom: 8px; }}
+  .report p {{ margin: 0 0 12px; }}
+  .sources {{ background: white; padding: 22px 28px; border-radius: 14px; box-shadow: 0 1px 3px rgba(15,23,42,0.06); }}
+  .sources ul {{ list-style: none; padding: 0; margin: 0; }}
+  .sources li {{ padding: 10px 0; border-bottom: 1px solid #eef0f3; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }}
+  .sources li:last-child {{ border-bottom: none; }}
+  .source {{ color: #94a3b8; font-size: 0.8em; white-space: nowrap; background: #f1f5f9; padding: 2px 8px; border-radius: 6px; }}
+  a {{ color: #1e40af; text-decoration: none; font-weight: 500; }}
   a:hover {{ text-decoration: underline; }}
+  footer {{ text-align: center; color: #94a3b8; font-size: 0.8em; margin-top: 24px; }}
 </style>
 </head>
 <body>
-  <h1>Morning Intelligence Report</h1>
-  <div class="date">{today}</div>
+  <header>
+    <h1>Morning Intelligence Report</h1>
+    <div class="date">{today}</div>
+  </header>
   <div class="report">
     {html_body}
   </div>
@@ -168,11 +184,42 @@ def write_html(summary_text, items):
       {sources_html}
     </ul>
   </div>
+  <footer>Automatisch erstellt &middot; wird jeden Morgen aktualisiert</footer>
 </body>
 </html>"""
 
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(html_content)
+
+    return html_content
+
+
+def send_email(html_content, today):
+    """Verschickt den Report per E-Mail ueber Gmail SMTP (kostenlos, App-Passwort noetig)."""
+    import smtplib
+    from email.mime.multipart import MIMEMultipart
+    from email.mime.text import MIMEText
+
+    sender = os.environ.get("GMAIL_ADDRESS")
+    app_password = os.environ.get("GMAIL_APP_PASSWORD")
+
+    if not sender or not app_password:
+        print("Kein GMAIL_ADDRESS/GMAIL_APP_PASSWORD gesetzt - E-Mail-Versand wird uebersprungen.")
+        return
+
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = f"Morning Report - {today}"
+    msg["From"] = sender
+    msg["To"] = sender
+    msg.attach(MIMEText(html_content, "html"))
+
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+            server.login(sender, app_password)
+            server.sendmail(sender, sender, msg.as_string())
+        print("E-Mail erfolgreich versendet.")
+    except Exception as e:
+        print(f"Warnung: E-Mail-Versand fehlgeschlagen: {e}")
 
 
 def main():
@@ -182,7 +229,9 @@ def main():
         return
     prompt = build_prompt(items)
     summary = get_summary(prompt)
-    write_html(summary, items)
+    html_content = write_html(summary, items)
+    today = datetime.date.today().strftime("%A, %d.%m.%Y")
+    send_email(html_content, today)
     print("index.html erfolgreich erstellt.")
 
 
