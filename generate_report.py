@@ -194,34 +194,6 @@ def write_html(summary_text, items):
     return html_content
 
 
-def send_email(html_content, today):
-    """Verschickt den Report per E-Mail ueber Gmail SMTP (kostenlos, App-Passwort noetig)."""
-    import smtplib
-    from email.mime.multipart import MIMEMultipart
-    from email.mime.text import MIMEText
-
-    sender = os.environ.get("GMAIL_ADDRESS")
-    app_password = os.environ.get("GMAIL_APP_PASSWORD")
-
-    if not sender or not app_password:
-        print("Kein GMAIL_ADDRESS/GMAIL_APP_PASSWORD gesetzt - E-Mail-Versand wird uebersprungen.")
-        return
-
-    msg = MIMEMultipart("alternative")
-    msg["Subject"] = f"Morning Report - {today}"
-    msg["From"] = sender
-    msg["To"] = sender
-    msg.attach(MIMEText(html_content, "html"))
-
-    try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-            server.login(sender, app_password)
-            server.sendmail(sender, sender, msg.as_string())
-        print("E-Mail erfolgreich versendet.")
-    except Exception as e:
-        print(f"Warnung: E-Mail-Versand fehlgeschlagen: {e}")
-
-
 def main():
     items = collect_headlines()
     if not items:
@@ -229,9 +201,7 @@ def main():
         return
     prompt = build_prompt(items)
     summary = get_summary(prompt)
-    html_content = write_html(summary, items)
-    today = datetime.date.today().strftime("%A, %d.%m.%Y")
-    send_email(html_content, today)
+    write_html(summary, items)
     print("index.html erfolgreich erstellt.")
 
 
