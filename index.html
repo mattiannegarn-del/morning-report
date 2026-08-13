@@ -3,99 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Morning Report - 13.08.2026</title>
+<title>Morning Report - Thursday, 13.08.2026</title>
 <style>
+  * { box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-    background: #f5f6f8;
-    color: #1a1a1a;
-    line-height: 1.5;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    background: #f4f5f7;
+    color: #1f2430;
+    line-height: 1.6;
   }
-  h1 { color: #1e3a8a; margin-bottom: 4px; }
-  h2 { color: #1e3a8a; margin-top: 28px; font-size: 1.2em; }
-  .date { color: #666; margin-bottom: 30px; font-size: 0.95em; }
-  .report { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-  .report ul { padding-left: 20px; }
-  .report li { margin-bottom: 6px; }
-  .sources { margin-top: 24px; background: white; padding: 20px 30px; border-radius: 12px; }
-  .sources ul { padding-left: 20px; }
-  .sources li { margin-bottom: 8px; }
-  .source { color: #888; font-size: 0.85em; }
-  a { color: #1e40af; text-decoration: none; }
+  header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    color: white;
+    margin: 0 -20px 28px;
+    padding: 36px 24px 28px;
+    border-radius: 0 0 20px 20px;
+  }
+  header h1 { margin: 0 0 4px; font-size: 1.5em; letter-spacing: -0.01em; }
+  header .date { opacity: 0.85; font-size: 0.95em; text-transform: capitalize; }
+  h2 { color: #1e293b; margin: 0 0 14px; font-size: 1.05em; border-left: 4px solid #1e40af; padding-left: 10px; }
+  .report { background: white; padding: 26px 28px; border-radius: 14px; box-shadow: 0 1px 3px rgba(15,23,42,0.06); margin-bottom: 20px; }
+  .report h2:not(:first-child) { margin-top: 26px; }
+  .report ul { padding-left: 20px; margin: 0 0 4px; }
+  .report li { margin-bottom: 8px; }
+  .report p { margin: 0 0 12px; }
+  .sources { background: white; padding: 22px 28px; border-radius: 14px; box-shadow: 0 1px 3px rgba(15,23,42,0.06); }
+  .sources ul { list-style: none; padding: 0; margin: 0; }
+  .sources li { padding: 10px 0; border-bottom: 1px solid #eef0f3; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .sources li:last-child { border-bottom: none; }
+  .source { color: #94a3b8; font-size: 0.8em; white-space: nowrap; background: #f1f5f9; padding: 2px 8px; border-radius: 6px; }
+  a { color: #1e40af; text-decoration: none; font-weight: 500; }
   a:hover { text-decoration: underline; }
+  footer { text-align: center; color: #94a3b8; font-size: 0.8em; margin-top: 24px; }
 </style>
 </head>
 <body>
-  <h1>Morning Intelligence Report</h1>
-  <div class="date">13.08.2026</div>
+  <header>
+    <h1>Morning Intelligence Report</h1>
+    <div class="date">Thursday, 13.08.2026</div>
+  </header>
   <div class="report">
-    <p>Hier ist Ihr strukturierter Morgenbericht mit den wichtigsten Meldungen des Tages.</p>
+    <p>Guten Morgen! Hier ist Ihr kompakter Überblick über die wichtigsten Nachrichten des Tages.</p>
 <h2>Executive Summary</h2>
-<p>Der heutige Nachrichtenüberblick steht im Zeichen strategischer Souveränität, Fortschritten in der KI-Forschung und wirtschaftlicher Entwicklungen. Deutschland prüft zur Stärkung der eigenen Sicherheit den Aufbau einer militärischen Raketenstartbasis, während nach einem Vorfall mit einer Sprengstoff-Drohne am Flughafen Leipzig ermittelt wird. Im KI-Sektor zeigen neue Forschungsergebnisse, wie sich komplexe Agenten-Systeme kostengünstig simulieren lassen, während die Deutsche Bank ihre Rolle im Währungshandel mit China deutlich ausbaut.</p>
+<p>Der heutige Tag steht stark im Zeichen der rasanten KI-Entwicklung und ihrer realen Konsequenzen – von massiven Auswirkungen auf die globale Infrastruktur bis hin zu neuen Regulierungen. Während extreme Trockenheit und niedrige Rhein-Pegelstande die deutsche Logistik belasten, zeichnen DAX-Konzerne dank des globalen Marktes überraschende Rekordgewinne ab. Gleichzeitig melden Forschungsteams bedeutende Fortschritte – von fälschungssicheren Sensorchips bis hin zu potenziellen Durchbrüchen in der HIV-Heilung.</p>
 <p>---</p>
 <h2>Die wichtigsten Einzelmeldungen</h2>
-<p>### Sicherheit &amp; Geopolitik</p>
+<p>### 🤖 Künstliche Intelligenz &amp; Technologie</p>
 <ul>
-<li>**Eigene Raketenstartbasis für Deutschland geplant**</li>
+<li>**EU-Regeln greifen: Anthropic führt KI-Wasserzeichen ein &amp; ETH entwickelt Deepfake-Schutz**</li>
+<li>*Was passiert ist:* Anthropic versieht Claude-Texte künftig mit unsichtbaren Wasserzeichen. Parallel hat die ETH Zürich einen Sensorchip entwickelt, der Bild- und Tondaten direkt bei der Aufnahme kryptografisch signiert.</li>
+<li>*Warum das relevant ist:* Der Kampf gegen Falschinformationen wird nun an zwei Fronten geführt: durch regulatorische Vorgaben für KI-Entwickler und hardwareseitige Fälschungssicherheit direkt in der Kamera.</li>
 </ul>
-<p>Die Bundesregierung prüft den Aufbau eines eigenen Weltraumbahnhofs, um militärische Satelliten unabhängig ins All befördern zu können.</p>
-<p>*Relevanz:* Ein zentraler Schritt zur Festigung der nationalen und europäischen Sicherheitsarchitektur und zur Verringerung technologischer Abhängigkeiten.</p>
 <ul>
-<li>**Ermittlungen nach Drohnenvorfall am Flughafen Leipzig/Halle**</li>
+<li>**KI-Rechenzentren treiben US-Stromverbrauch auf Rekordhoch**</li>
+<li>*Was passiert ist:* Die US-Energiebehörde prognostiziert neue Höchststände beim Stromverbrauch durch den KI-Boom. In Texas wurde bereits ein Baustopp für neue Rechenzentren erlassen.</li>
+<li>*Warum das relevant ist:* Der immense Energie- und Ressourcenbedarf von KI-Infrastruktur stößt zunehmend an physische und ökologische Grenzen und erfordert politische Eingriffe.</li>
 </ul>
-<p>Nach dem Fund einer mit Sprengstoff bestückten Drohne untersuchen Behörden eine vorherige Explosion in der Nähe des Flughafens.</p>
-<p>*Relevanz:* Verdeutlicht die zunehmende Bedrohungslage für kritische Infrastrukturen und die zivile Luftfahrt durch unbemannte Flugsysteme.</p>
-<p>### Künstliche Intelligenz &amp; Software</p>
 <ul>
-<li>**Günstige Simulation großer KI-Gesellschaften auf Laptops** *(arXiv)*</li>
+<li>**Spotify führt Transparenzpflicht für KI-Künstler ein**</li>
+<li>*Was passiert ist:* Spotify plant eine klare Kennzeichnung von KI-generierter Musik und Profilen auf seiner Plattform.</li>
+<li>*Warum das relevant ist:* Ein wichtiger Schritt zur Wahrung von Urheberrechten und fairen Vergütungsmodellen für menschliche Kulturschaffende in der Musikindustrie.</li>
 </ul>
-<p>Eine neue Studie stellt Methoden vor, um komplexe Interaktionen vieler LLM-Agenten (&quot;Agentic Societies&quot;) ressourcenschonend auf Standard-Hardware zu simulieren.</p>
-<p>*Relevanz:* Demokratisiert die KI-Forschung, da teure Server-Cluster für makroskopische Agenten-Analysen nicht mehr zwingend erforderlich sind.</p>
+<p>### 💼 Wirtschaft, Infrastruktur &amp; Sicherheit</p>
 <ul>
-<li>**ChatGPT / Codex Desktop für Linux verfügbar** *(Hacker News)*</li>
+<li>**Dürre blockiert Rheinschifffahrt: Sonntagsfahrverbote für Lkw gelockert**</li>
+<li>*Was passiert ist:* Sinkende Pegelstände auf dem Rhein stören die Binnenschifffahrt erheblich. Mehrere Bundesländer haben daraufhin das Sonntagsfahrverbot für Lkw gelockert, um Lieferketten abzusichern.</li>
+<li>*Warum das relevant ist:* Extremwetterereignisse schlagen sich direkt auf die Logistik und die Straßeninfrastruktur nieder und erfordern flexiblere gesetzliche Sonderregelungen.</li>
 </ul>
-<p>OpenAI bringt seine Entwickler-Tools nun offiziell als Desktop-Anwendung auf das Linux-Betriebssystem.</p>
-<p>*Relevanz:* Wichtiger Schritt für Software-Entwickler und Server-Administratoren, die überwiegend auf Linux-Umgebungen arbeiten.</p>
-<p>### Wirtschaft &amp; Finanzen</p>
 <ul>
-<li>**Deutsche Bank wird erste europäische Yuan-Clearing-Bank** *(Hacker News)*</li>
+<li>**Sprengstoff-Drohne in Leipzig erhöht Druck auf Sicherheitsbehörden**</li>
+<li>*Was passiert ist:* Nach der Entdeckung einer Sprengstoff-Drohne am Frachtflughafen Leipzig/Halle fordern die Innenminister ein deutlich schnelleres Handeln beim Ausbau von Drohnen-Abwehrfähigkeiten.</li>
+<li>*Warum das relevant ist:* Der Vorfall unterstreicht die Verwundbarkeit kritischer Infrastrukturen durch neue, kostengünstige asymmetrische Bedrohungen.</li>
 </ul>
-<p>Die Deutsche Bank ist die erste ausländische Bank in Europa, die offizielle Clearing-Dienste für die chinesische Währung (Yuan/RMB) anbietet.</p>
-<p>*Relevanz:* Stärkt die direkten Handels- und Finanzbeziehungen zwischen Europa und China und reduziert die Abhängigkeit von Zwischenhändlern.</p>
 <ul>
-<li>**DAX-Vorstandsgehälter 2025 erneut gestiegen** *(Tagesschau)*</li>
+<li>**DAX-Konzerne steuern trotz Krise auf Rekordgewinne 2026 zu**</li>
+<li>*Was passiert ist:* Nach einem starken ersten Halbjahr heben viele deutsche Großunternehmen ihre Prognosen an. Sie profitieren vor allem von weltweiten Wachstumsfeldern.</li>
+<li>*Warum das relevant ist:* Es zeigt eine deutliche Entkopplung der international aufgestellten DAX-Konzerne von der schwächelnden heimischen Binnenkonjunktur.</li>
 </ul>
-<p>Laut einer Studie von Aktionärsschützern haben Vorstände deutscher DAX-Konzerne 2025 mehr verdient als im Vorjahr, angeführt von SAP-Chef Christian Klein.</p>
-<p>*Relevanz:* Gibt Einblicke in die Corporate Governance und Vergütungstrends der deutschen Leitunternehmen.</p>
+<p>### 🔬 Wissenschaft &amp; Forschung</p>
 <ul>
-<li>**Ernteausfälle durch Trockenheit in Deutschland** *(Tagesschau)*</li>
+<li>**Möglicher Durchbruch bei der HIV-Heilung von Neugeborenen**</li>
+<li>*Was passiert ist:* Forschende konnten infizierte Makaken-Babys mithilfe einer neuartigen Dreifachtherapie vollständig von HIV heilen. Humantests sind in Planung.</li>
+<li>*Warum das relevant ist:* Sollten sich die Ergebnisse auf den Menschen übertragen lassen, könnte dies die Übertragung und den Ausbruch von HIV bei Neugeborenen weltweit stoppen.</li>
 </ul>
-<p>Der Raiffeisenverband rechnet nach Sommertrockenheiten mit einer unterdurchschnittlichen, aber noch ausreichenden Getreideernte.</p>
-<p>*Relevanz:* Unterstreicht die spürbaren wirtschaftlichen Folgen des Klimawandels auf die heimische Landwirtschaft und die Nahrungsmittelversorgung.</p>
+<ul>
+<li>**Erster „Black Hole Star“ im frühen Universum entdeckt**</li>
+<li>*Was passiert ist:* Astronomen haben ein bizarres Objekt beobachtet, das eine sternähnliche Hülle besitzt, in dessen Zentrum sich jedoch ein Schwarzes Loch befindet.</li>
+<li>*Warum das relevant ist:* Der Fund liefert völlig neue Erkenntnisse darüber, wie die ersten supermassereichen Schwarzen Löcher im frühen Kosmos entstanden sein könnten.</li>
+</ul>
+<p>---</p>
+<p>*Ich wünsche Ihnen einen erfolgreichen Tag!*</p>
   </div>
   <div class="sources">
     <h2>Quellen</h2>
     <ul>
-      <li><a href="https://arxiv.org/abs/2608.11207" target="_blank">Dynamic Governance of Multi-LLM Agent Systems for Collaborative Conversational Outcomes</a> <span class="source">(arXiv - KI Papers)</span></li>
-<li><a href="https://arxiv.org/abs/2608.11210" target="_blank">Distribird: Literature-Informed Prior Distribution Design for Bayesian Model Calibration</a> <span class="source">(arXiv - KI Papers)</span></li>
-<li><a href="https://arxiv.org/abs/2608.11211" target="_blank">A Forced-Structure Reduction and Verifiable Bounds for Conway&#x27;s 99-Graph</a> <span class="source">(arXiv - KI Papers)</span></li>
-<li><a href="https://arxiv.org/abs/2608.11212" target="_blank">Detecting a Route Flip Is Easier Than Knowing Whether to Fix It: Causal Route-Mediated Damage in Quantized Mixture-of-Experts</a> <span class="source">(arXiv - KI Papers)</span></li>
-<li><a href="https://arxiv.org/abs/2608.11215" target="_blank">Poor Man&#x27;s Agentic Modeling: Simulating Large LLM-Agent Societies on a Laptop</a> <span class="source">(arXiv - KI Papers)</span></li>
-<li><a href="https://tradersunion.com/news/central-banks/show/2973571-deutsche-bank-becomes/" target="_blank">Deutsche Bank becomes first foreign yuan clearing bank in Europe</a> <span class="source">(Hacker News)</span></li>
-<li><a href="https://atg.science/careers" target="_blank">ATG (YC F25) Is Hiring Member of Technical Staff (Data Platform)</a> <span class="source">(Hacker News)</span></li>
-<li><a href="https://openai.com/codex/" target="_blank">ChatGPT Desktop (Codex Desktop) for Linux</a> <span class="source">(Hacker News)</span></li>
-<li><a href="https://sharktastica.co.uk/articles/pc-fxt-45" target="_blank">Happy 45th Birthday to the IBM PC and Model F/XT</a> <span class="source">(Hacker News)</span></li>
-<li><a href="https://flutter.dev/blog/whats-new-in-flutter-3-47" target="_blank">Flutter 3.47</a> <span class="source">(Hacker News)</span></li>
-<li><a href="https://www.tagesschau.de/inland/innenpolitik/raketen-bundeswehr-startbasis-100.html" target="_blank">Raketenstartbasis: Deutschland sucht seinen Weg ins All</a> <span class="source">(Tagesschau)</span></li>
-<li><a href="https://www.tagesschau.de/wirtschaft/unternehmen/gehalt-dax-vorstaende-dsw-100.html" target="_blank">Studie: Soviel verdienten DAX-Vorstände 2025</a> <span class="source">(Tagesschau)</span></li>
-<li><a href="https://www.tagesschau.de/wirtschaft/bauern-getreide-ernte-100.html" target="_blank">Trockenheit und Dürre: Getreideernte in Deutschland leidet stark</a> <span class="source">(Tagesschau)</span></li>
-<li><a href="https://www.tagesschau.de/ausland/europa/polen-marienstatue-100.html" target="_blank">Riesige Marienstatue in Polen soll Pilger anziehen</a> <span class="source">(Tagesschau)</span></li>
-<li><a href="https://www.tagesschau.de/investigativ/ndr-wdr/drohnen-leipzig-100.html" target="_blank">Drohnenvorfall am Flughafen Leipzig: Was explodierte in Kursdorf?</a> <span class="source">(Tagesschau)</span></li>
+      <li><a href="https://arxiv.org/abs/2608.11207" target="_blank">Dynamic Governance of Multi-LLM Agent Systems for Collaborative Conversational Outcomes</a> <span class="source">arXiv - KI Papers</span></li>
+<li><a href="https://arxiv.org/abs/2608.11210" target="_blank">Distribird: Literature-Informed Prior Distribution Design for Bayesian Model Calibration</a> <span class="source">arXiv - KI Papers</span></li>
+<li><a href="https://arxiv.org/abs/2608.11211" target="_blank">A Forced-Structure Reduction and Verifiable Bounds for Conway&#x27;s 99-Graph</a> <span class="source">arXiv - KI Papers</span></li>
+<li><a href="https://arxiv.org/abs/2608.11212" target="_blank">Detecting a Route Flip Is Easier Than Knowing Whether to Fix It: Causal Route-Mediated Damage in Quantized Mixture-of-Experts</a> <span class="source">arXiv - KI Papers</span></li>
+<li><a href="https://arxiv.org/abs/2608.11215" target="_blank">Poor Man&#x27;s Agentic Modeling: Simulating Large LLM-Agent Societies on a Laptop</a> <span class="source">arXiv - KI Papers</span></li>
+<li><a href="https://www.heise.de/news/Neuer-Sensorchip-der-ETH-Zuerich-macht-Deepfakes-unmoeglich-11374836.html?wt_mc=rss.red.ho.ho.rdf.beitrag_plus.beitrag_plus" target="_blank">heise+ | Neuer Sensorchip der ETH Zürich macht Deepfakes unmöglich</a> <span class="source">Heise Online - Tech & KI</span></li>
+<li><a href="https://www.heise.de/ratgeber/Wie-KI-Open-Source-Maintainer-unter-Druck-setzt-11365967.html?wt_mc=rss.red.ho.ho.rdf.beitrag_plus.beitrag_plus" target="_blank">heise+ | Wie KI Open-Source-Maintainer unter Druck setzt</a> <span class="source">Heise Online - Tech & KI</span></li>
+<li><a href="https://www.heise.de/ratgeber/Googles-TurboQuant-Verfahren-Praxistest-auf-einer-AMD-GPU-11409828.html?wt_mc=rss.red.ho.ho.rdf.beitrag_plus.beitrag_plus" target="_blank">heise+ | Googles TurboQuant-Verfahren: Praxistest auf einer AMD-GPU</a> <span class="source">Heise Online - Tech & KI</span></li>
+<li><a href="https://www.heise.de/hintergrund/E-Government-Wie-BundID-und-E-Perso-ihre-Nutzer-in-die-Verzweiflung-treiben-11368539.html?wt_mc=rss.red.ho.ho.rdf.beitrag_plus.beitrag_plus" target="_blank">heise+ | E-Government: Wie BundID und E-Perso ihre Nutzer in die Verzweiflung treiben</a> <span class="source">Heise Online - Tech & KI</span></li>
+<li><a href="https://www.heise.de/tests/360-Grad-Actionkamera-Insta360-X6-mit-8K-Aufnahme-und-grossem-Sensor-im-Test-11350717.html?wt_mc=rss.red.ho.ho.rdf.beitrag_plus.beitrag_plus" target="_blank">heise+ | 360-Grad-Actionkamera: Insta360 X6 mit 8K-Aufnahme und großem Sensor im Test</a> <span class="source">Heise Online - Tech & KI</span></li>
+<li><a href="https://www.tagesschau.de/wirtschaft/verbraucher/rhein-niedrigwasser-folgen-100.html" target="_blank">Folgen von Dürre und Niedrigwasser - die Auswirkungen im Alltag</a> <span class="source">Tagesschau - Wirtschaft</span></li>
+<li><a href="https://www.tagesschau.de/inland/innenpolitik/niedrigwasser-sonntagsfahrverbot-lockerungen-100.html" target="_blank">Weitere Bundesländer lockern Sonntagsfahrverbote für Lkw</a> <span class="source">Tagesschau - Wirtschaft</span></li>
+<li><a href="https://www.tagesschau.de/wirtschaft/technologie/spotify-ki-kennzeichnung-musikstreaming-100.html" target="_blank">Massen künstlicher Songs: Spotify will KI-Künstler klarer kennzeichnen</a> <span class="source">Tagesschau - Wirtschaft</span></li>
+<li><a href="https://www.tagesschau.de/wirtschaft/technologie/ki-stromverbrauch-rechenzentren-100.html" target="_blank">KI-Rechenzentren lassen US-Stromverbrauch auf Rekordhoch steigen</a> <span class="source">Tagesschau - Wirtschaft</span></li>
+<li><a href="https://www.tagesschau.de/wirtschaft/anthropic-ki-wasserzeichen-claude-100.html" target="_blank">Anthropic führt Wasserzeichen bei KI-Texten ein</a> <span class="source">Tagesschau - Wirtschaft</span></li>
+<li><a href="https://www.handelsblatt.com/finanzen/immobilien/immobilien-bundesbank-zuschlag-fuer-neue-zentrale-bis-ende-2027/100246990.html" target="_blank">Immobilien: Nach gescheitertem Milliardenprojekt: Bundesbank schreibt neue Zentrale aus und wird bescheidener</a> <span class="source">Handelsblatt</span></li>
+<li><a href="https://www.handelsblatt.com/technik/ki-anthropic-kann-bei-ipo-wohl-mit-zwei-billionen-bewertung-rechnen/100247109.html" target="_blank">KI: Anthropic kann bei IPO wohl mit Zwei-Billionen-Bewertung rechnen</a> <span class="source">Handelsblatt</span></li>
+<li><a href="https://www.handelsblatt.com/unternehmen/unternehmen-dax-konzerne-stehen-2026-vor-einem-rekordgewinn/100245600.html" target="_blank">Unternehmen: Dax-Konzerne stehen 2026 vor einem Rekordgewinn – wie kann das sein?</a> <span class="source">Handelsblatt</span></li>
+<li><a href="https://www.handelsblatt.com/politik/deutschland/sprengstoff-drohne-in-leipzig-innenminister-sehen-zeitdruck-bei-drohnen-abwehrfaehigkeiten/100247123.html" target="_blank">Sprengstoff-Drohne in Leipzig: Innenminister sehen Zeitdruck bei Drohnen-Abwehrfähigkeiten</a> <span class="source">Handelsblatt</span></li>
+<li><a href="https://www.handelsblatt.com/meinung/kommentare/kommentar-superabschreibungen-die-grosse-investitionsverweigerung/100247060.html" target="_blank">Kommentar: Superabschreibungen – Die große Investitionsverweigerung</a> <span class="source">Handelsblatt</span></li>
+<li><a href="https://wissenschaft.de/artikel/nie-zuvor-gesehene-struktur-in-einem-kristall-entdeckt" target="_blank">Nie zuvor gesehene Struktur in einem Kristall entdeckt</a> <span class="source">Wissenschaft.de</span></li>
+<li><a href="https://wissenschaft.de/artikel/partnersuche-auch-froesche-leiden-unter-der-qual-der-wahl" target="_blank">Partnersuche: Auch Frösche leiden unter der Qual der Wahl</a> <span class="source">Wissenschaft.de</span></li>
+<li><a href="https://wissenschaft.de/artikel/interview-wie-wirkt-die-sommerhitze-auf-unser-gehirn" target="_blank">Interview: Wie wirkt die Sommerhitze auf unser Gehirn?</a> <span class="source">Wissenschaft.de</span></li>
+<li><a href="https://wissenschaft.de/artikel/astronomen-finden-ersten-black-hole-star" target="_blank">Astronomen finden ersten „Black Hole Star“</a> <span class="source">Wissenschaft.de</span></li>
+<li><a href="https://wissenschaft.de/artikel/affen-studie-laesst-sich-hiv-bei-neugeborenen-heilen" target="_blank">Affen-Studie: Lässt sich HIV bei Neugeborenen heilen?</a> <span class="source">Wissenschaft.de</span></li>
 
     </ul>
   </div>
+  <footer>Automatisch erstellt &middot; wird jeden Morgen aktualisiert</footer>
 </body>
 </html>
