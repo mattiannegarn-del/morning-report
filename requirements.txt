@@ -1,2 +1,4 @@
-   feedparser
-   google-genai
+feedparser
+google-genai
+requests
+yfinance
